@@ -1,0 +1,141 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[catalan]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage{mdframed}
+\usepackage{xcolor}
+
+% --- COLORS DE LA TEVA PLANTILLA ---
+\definecolor{taronja}{RGB}{220, 120, 30}
+\definecolor{blaufosc}{RGB}{30, 80, 160}
+\definecolor{verdfosc}{RGB}{40, 130, 60}
+\definecolor{grisnet}{RGB}{245, 245, 245}
+
+% --- MARGES I CAPÇALERA ORIGINAL ---
+\geometry{top=4cm, bottom=3cm, left=2cm, right=2cm, headheight=2.5cm}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\includegraphics[height=1.8cm]{Logo_Departament.png}}
+\fancyhead[R]{\includegraphics[height=1.8cm]{Logo_Institut.png}}
+\fancyfoot[C]{Pàgina \thepage\ de \pageref{LastPage}}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Large FITXA 2: MODELITZACIÓ AMB FUNCIONS EXPONENCIALS}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{tcolorbox}[colback=blaufosc!5, colframe=blaufosc, title=\textbf{Guia de treball: Creixement i Decreixement}]
+    Recorda que l'expressió general és $y = k \cdot a^x$ (o $f(t) = k \cdot a^t$):
+    \begin{itemize}
+        \item \textbf{$k$}: Quantitat inicial (quan $t=0$).
+        \item \textbf{$a$}: Factor de multiplicació.
+        \begin{itemize}
+            \item Si augmenta un $r\% \to a = (1 + r/100)$. Exemple: $+6\% \to a=1,06$.
+            \item Si disminueix un $r\% \to a = (1 - r/100)$. Exemple: $-10\% \to a=0,90$.
+        \end{itemize}
+    \end{itemize}
+\end{tcolorbox}
+
+\vspace{0.4cm}
+
+% ---- PROBLEMA 1: XARXES (CREIXEMENT) ----
+\section*{Problema 1. Difusió d'una "fake news"}
+Un rumor comença a circular per una xarxa social. Inicialment, \textbf{10 persones} coneixen la notícia. Es calcula que cada hora que passa, el nombre de persones que coneixen el rumor \textbf{es triplica}.
+
+\begin{enumerate}[label=\alph*)]
+    \item Omple la taula per als primers moments:
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        Temps $t$ (hores) & 0 & 1 & 2 & 3 & 4 \\ \hline
+        Persones $P(t)$ & 10 & & & & \\ \hline
+        \end{tabular}
+    \end{center}
+    \item Escriu l'expressió algebraica de la funció $P(t)$.
+    \item Representa la funció aproximadament (eix $x$: 0 a 5, eix $y$: 0 a 1000).
+    \item Quantes persones coneixeran la notícia al cap de 10 hores? Té sentit aquest resultat en una població real?
+\end{enumerate}
+
+% ---- PROBLEMA 2: DEPRECIACIÓ (DECREIXEMENT) ----
+\section*{Problema 2. Depreciació d'un vehicle}
+L'empresa de missatgeria de l'institut compra una furgoneta nova per \textbf{24.000 \euro}. Es calcula que el seu valor \textbf{disminueix un 15\% cada any}.
+
+\begin{enumerate}[label=\alph*)]
+    \item Quin és el valor de la furgoneta al cap d'1 any? ($t=1$) I al cap de 2 anys?
+    \item Troba l'expressió algebraica $V(t)$ que ens dóna el valor segons els anys.
+    \item Quants diners valdrà la furgoneta al cap de 8 anys? 
+    \item Si l'empresa vol vendre-la quan el seu valor sigui inferior a 5.000 \euro, creus que ja haurà passat aquest temps als 10 anys? (Comprova el valor per a $t=10$).
+\end{enumerate}
+
+\newpage
+
+% ---- PROBLEMA 3: INVERSIÓ (FINANCER) ----
+\section*{Problema 3. Pla d'estalvi per a la universitat}
+Una família ingressa \textbf{6.000 \euro} en un fons d'inversió que ofereix un \textbf{4,5\% d'interès anual compost}.
+
+\begin{enumerate}[label=\alph*)]
+    \item Calcula el capital acumulat durant els primers 3 anys (taula de valors).
+    \item Escriu la funció $C(t)$ que modelitza aquest estalvi.
+    \item Si el fill necessita 10.000 \euro{} per pagar els estudis quan faci 18 anys, tindrà prou diners si el fons es va obrir quan va néixer ($t=18$)?
+    \item Fes un esbós de la gràfica. És més o menys "vertical" que la del problema 1? Per què?
+\end{enumerate}
+
+% ---- PROBLEMA 4: DEMOGRAFIA (POBLACIÓ) ----
+\section*{Problema 4. El creixement d'una vila}
+La població de Sant Fruitós és actualment de \textbf{8.500 habitants}. Les previsions demogràfiques indiquen que la població \textbf{creixerà un 2\% anual} de forma constant.
+
+\begin{enumerate}[label=\alph*)]
+    \item Quants habitants tindrà la vila d'aquí a 1, 2 i 5 anys?
+    \item Troba l'expressió algebraica $H(t)$.
+    \item Quants anys hauran de passar, aproximadament, perquè la població superi els 10.000 habitants? (Ves provant valors amb la calculadora: $t=8, t=9...$).
+\end{enumerate}
+
+% ---- PROBLEMA 5: INFLACIÓ (ECONOMIA) ----
+\section*{Problema 5. La pèrdua de poder adquisitiu}
+A causa de la inflació, el valor dels diners disminueix. Si la inflació és del \textbf{3\% anual}, el preu de la cistella de la compra (que avui val \textbf{100 \euro}) augmenta seguint una funció exponencial.
+
+\begin{enumerate}[label=\alph*)]
+    \item Si un producte val 100 \euro{} avui, quant valdrà d'aquí a 1, 2 i 3 anys si manté el ritme de la inflació?
+    \item Troba l'expressió $P(t)$.
+    \item Quant costarà el mateix producte al cap de 20 anys?
+    \item \textbf{Recíproc:} Si tens 100 \euro{} guardats sota el matalàs, el seu "valor real" disminueix un 3\% cada any ($a=0,97$). Quin valor real tindran aquests 100 \euro{} al cap de 20 anys?
+\end{enumerate}
+
+\newpage
+
+% ---- PÀGINA DE SOLUCIONS ----
+\section*{Solucions Fitxa 2}
+
+\textbf{Prob 1. Fake news:} 
+a) 10, 30, 90, 270, 810. b) $P(t) = 10 \cdot 3^t$. d) $590.490$ persones. No té sentit si la població és més petita.
+
+\textbf{Prob 2. Furgoneta:} 
+a) 20.400 \euro{} i 17.340 \euro. b) $V(t) = 24000 \cdot 0,85^t$. c) 6.539,78 \euro. d) Sí, valdrà 4.724,99 \euro.
+
+\textbf{Prob 3. Estalvis:} 
+a) 6270, 6552.15, 6846.99. b) $C(t) = 6000 \cdot 1,045^t$. c) Sí, tindrà 13.250,91 \euro. d) Menys vertical (base 1,045 vs base 3).
+
+\textbf{Prob 4. Vila:} 
+a) 8670, 8843, 9384 habitants. b) $H(t) = 8500 \cdot 1,02^t$. c) Entre 8 i 9 anys ($H(8) \approx 9959, H(9) \approx 10158$).
+
+\textbf{Prob 5. Inflació:} 
+a) 103, 106.09, 109.27 \euro. b) $P(t) = 100 \cdot 1,03^t$. c) 180,61 \euro. d) 54,38 \euro.
+
+\end{document}
