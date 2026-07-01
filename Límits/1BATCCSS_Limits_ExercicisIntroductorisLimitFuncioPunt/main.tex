@@ -1,0 +1,192 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[catalan]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{amsmath}
+
+% 1. MARGES I CAPÇALERA
+\geometry{top=4cm, bottom=3cm, left=2cm, right=2cm, headheight=2.5cm}
+
+\pagestyle{fancy}
+\fancyhf{}
+% Assegura't que tens els fitxers d'imatge o comenta aquestes línies si no els tens [cite: 1]
+\fancyhead[L]{\includegraphics[height=1.8cm]{Logo_Departament.png}} 
+\fancyhead[R]{\includegraphics[height=1.8cm]{Logo_Institut.png}}
+
+\fancyfoot[L]{}
+\fancyfoot[C]{Pàgina \thepage\ de \pageref{LastPage}}
+\fancyfoot[R]{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+% --- CAPÇALERA D'IDENTIFICACIÓ --- [cite: 1]
+\begingroup
+\renewcommand{\arraystretch}{2.2}
+\begin{tabularx}{\textwidth}{|X|p{4cm}|}
+    \hline
+    \textbf{Nom i cognoms:} & \textbf{Grup:} \\ \hline
+    \textbf{Activitat:} Càlcul de Límits en un Punt & \textbf{Data:} \\ \hline
+\end{tabularx}
+\endgroup
+
+\vspace{0.8cm}
+
+\begin{center}
+    {\Large \textbf{LÍMITS D'UNA FUNCIÓ EN UN PUNT}}
+\end{center}
+
+\vspace{0.5cm}
+
+% --- EXERCICI 1 ---
+\section*{Exercici 1: Aproximació mitjançant taules de valors}
+Calcula els següents límits completant les taules de valors per apropar-te al punt tant per l'esquerra com per la dreta. Indica quin és el resultat del límit o si no existeix.
+
+\vspace{0.3cm}
+\textbf{a)} $\lim_{x \to 2} \frac{1}{(x-2)^2}$ \textit{(Exemple on els dos costats tendeixen a infinit)}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$x$ & 1.9 & 1.99 & 1.999 & $\rightarrow 2 \leftarrow$ & 2.001 & 2.01 & 2.1 \\
+\hline
+$f(x)$ & & & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+Límit per l'esquerra: \rule{2cm}{0.1mm} \hspace{1cm} Límit per la dreta: \rule{2cm}{0.1mm} \hspace{1cm} Resultat: \rule{2cm}{0.1mm}
+
+\vspace{0.5cm}
+\textbf{b)} $\lim_{x \to 1} \frac{1}{x-1}$ \textit{(Exemple on el límit no existeix)}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$x$ & 0.9 & 0.99 & 0.999 & $\rightarrow 1 \leftarrow$ & 1.001 & 1.01 & 1.1 \\
+\hline
+$f(x)$ & & & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+Límit per l'esquerra: \rule{2cm}{0.1mm} \hspace{1cm} Límit per la dreta: \rule{2cm}{0.1mm} \hspace{1cm} Resultat: \rule{2cm}{0.1mm}
+
+\vspace{0.5cm}
+\textbf{c)} $\lim_{x \to 3} (2x + 1)$ \textit{(Exemple on s'arriba a un valor concret)}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$x$ & 2.9 & 2.99 & 2.999 & $\rightarrow 3 \leftarrow$ & 3.001 & 3.01 & 3.1 \\
+\hline
+$f(x)$ & & & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+Límit per l'esquerra: \rule{2cm}{0.1mm} \hspace{1cm} Límit per la dreta: \rule{2cm}{0.1mm} \hspace{1cm} Resultat: \rule{2cm}{0.1mm}
+
+\newpage
+
+% --- EXERCICI 2 ---
+\section*{Exercici 2: Límits directes i indeterminacions $0/0$}
+Calcula els següents límits. Alguns es poden resoldre substituint directament, però d'altres donen una indeterminació del tipus $\frac{0}{0}$ i necessiten factorització per simplificar.
+
+\textbf{Exemple resolt:} 
+$\lim_{x \to 3} \frac{x^2 - 9}{x - 3} = \left[ \frac{0}{0} \right] = \lim_{x \to 3} \frac{(x-3)(x+3)}{x-3} = \lim_{x \to 3} (x+3) = 3 + 3 = 6$
+
+\begin{enumerate}[label=\textbf{\alph*)}]
+    \itemsep1.5em
+    \item $\lim_{x \to 2} \frac{x^2 - 4}{x - 2} =$
+    \item $\lim_{x \to 5} (x^2 - 3x + 2) =$ 
+    \item $\lim_{x \to 1} \frac{x^2 + 2x - 3}{x - 1} =$
+    \item $\lim_{x \to -2} \frac{x^2 + 4x + 4}{x + 2} =$
+    \item $\lim_{x \to 0} \frac{x^2 - 5x}{x} =$
+\end{enumerate}
+
+\vspace{1cm}
+
+% --- EXERCICI 3 ---
+\section*{Exercici 3: Límits directes i indeterminacions $k/0$}
+Calcula els límits següents. Si et trobes amb una indeterminació del tipus $\frac{k}{0}$, recorda que has de calcular els límits laterals per determinar si el resultat és $+\infty$, $-\infty$ o si no existeix.
+
+\textbf{Exemple resolt:} 
+$\lim_{x \to 2} \frac{x+1}{x-2} = \left[ \frac{3}{0} \right] \Rightarrow \begin{cases} 
+      \lim_{x \to 2^-} \frac{x+1}{x-2} = \frac{+}{-} = -\infty \\
+      \lim_{x \to 2^+} \frac{x+1}{x-2} = \frac{+}{+} = +\infty 
+   \end{cases} \Rightarrow \text{No existeix el límit.}$
+
+\begin{enumerate}[label=\textbf{\alph*)}]
+    \itemsep2.5em
+    \item $\lim_{x \to 1} \frac{3x}{x-1} =$
+    \item $\lim_{x \to 4} \frac{x-2}{x+1} =$
+    \item $\lim_{x \to -3} \frac{5}{(x+3)^2} =$
+    \item $\lim_{x \to 0} \frac{4}{x} =$
+    \item $\lim_{x \to 3} \frac{2x - 1}{x - 3} =$
+\end{enumerate}
+
+\newpage
+
+% --- EXERCICI 4 ---
+\section*{Exercici 4: Límits combinats}
+Calcula els següents límits. Identifica primer quin tipus de cas és (substitució directa, $\frac{0}{0}$ o $\frac{k}{0}$) i aplica el mètode adequat.
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+    \itemsep3em
+    \item $\lim_{x \to 0} \frac{2x^3 - x^2}{x^2} =$
+    \item $\lim_{x \to 4} (x^2 - \sqrt{x}) =$
+    \item $\lim_{x \to 2} \frac{x+5}{x-2} =$
+    \item $\lim_{x \to 1} \frac{x^2 - x}{x^2 - 1} =$
+    \item $\lim_{x \to -2} \frac{3}{x+2} =$
+    \item $\lim_{x \to -3} \frac{x^2 - 9}{x+3} =$
+    \item $\lim_{x \to 5} \frac{2x}{x-5} =$
+    \item $\lim_{x \to 2} \frac{3x^2 + 1}{x - 1} =$
+\end{enumerate}
+
+\newpage
+
+% --- SOLUCIONARI ---
+\section*{Solucionari de la fitxa}
+
+\subsection*{Exercici 1}
+\begin{enumerate}[label=\textbf{\alph*)}]
+    \item $\lim_{x \to 2} \frac{1}{(x-2)^2} = \left[ \frac{1}{0} \right]$. Lím. esquerra: $+\infty$ $|$ Lím. dreta: $+\infty$ $\Rightarrow$ \textbf{Resultat: $+\infty$}
+    \item $\lim_{x \to 1} \frac{1}{x-1} = \left[ \frac{1}{0} \right]$. Lím. esquerra: $-\infty$ $|$ Lím. dreta: $+\infty$ $\Rightarrow$ \textbf{Resultat: No existeix $\nexists$}
+    \item $\lim_{x \to 3} (2x + 1) = 2(3)+1$. Lím. esquerra: 7 $|$ Lím. dreta: 7 $\Rightarrow$ \textbf{Resultat: 7}
+\end{enumerate}
+
+\subsection*{Exercici 2}
+\begin{enumerate}[label=\textbf{\alph*)}]
+    \item $\lim_{x \to 2} \frac{(x-2)(x+2)}{x-2} = \lim_{x \to 2} (x+2) = \textbf{4}$
+    \item Substitució directa: $5^2 - 3(5) + 2 = 25 - 15 + 2 = \textbf{12}$
+    \item $\lim_{x \to 1} \frac{(x-1)(x+3)}{x-1} = \lim_{x \to 1} (x+3) = \textbf{4}$
+    \item $\lim_{x \to -2} \frac{(x+2)^2}{x+2} = \lim_{x \to -2} (x+2) = \textbf{0}$
+    \item $\lim_{x \to 0} \frac{x(x-5)}{x} = \lim_{x \to 0} (x-5) = \textbf{-5}$
+\end{enumerate}
+
+\subsection*{Exercici 3}
+\begin{enumerate}[label=\textbf{\alph*)}]
+    \item $\left[ \frac{3}{0} \right] \Rightarrow \lim_{x \to 1^-} = -\infty, \lim_{x \to 1^+} = +\infty \Rightarrow \textbf{No existeix}$
+    \item Substitució directa: $\frac{4-2}{4+1} = \mathbf{\frac{2}{5}}$
+    \item $\left[ \frac{5}{0} \right] \Rightarrow$ Com que el denominador està al quadrat, sempre serà positiu. $\lim_{x \to -3^-} = +\infty, \lim_{x \to -3^+} = +\infty \Rightarrow \mathbf{+\infty}$
+    \item $\left[ \frac{4}{0} \right] \Rightarrow \lim_{x \to 0^-} = -\infty, \lim_{x \to 0^+} = +\infty \Rightarrow \textbf{No existeix}$
+    \item $\left[ \frac{5}{0} \right] \Rightarrow \lim_{x \to 3^-} = -\infty, \lim_{x \to 3^+} = +\infty \Rightarrow \textbf{No existeix}$
+\end{enumerate}
+
+\subsection*{Exercici 4}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+    \item (Tipus $0/0$): $\lim_{x \to 0} \frac{x^2(2x-1)}{x^2} = \lim_{x \to 0} (2x-1) = \textbf{-1}$
+    \item (Directe): $4^2 - \sqrt{4} = 16 - 2 = \textbf{14}$
+    \item (Tipus $k/0$): Límits laterals donen $-\infty$ i $+\infty \Rightarrow \textbf{No existeix}$
+    \item (Tipus $0/0$): $\lim_{x \to 1} \frac{x(x-1)}{(x-1)(x+1)} = \lim_{x \to 1} \frac{x}{x+1} = \mathbf{\frac{1}{2}}$
+    \item (Tipus $k/0$): Límits laterals donen $-\infty$ i $+\infty \Rightarrow \textbf{No existeix}$
+    \item (Tipus $0/0$): $\lim_{x \to -3} \frac{(x-3)(x+3)}{x+3} = \lim_{x \to -3} (x-3) = \textbf{-6}$
+    \item (Tipus $k/0$): Límits laterals donen $-\infty$ i $+\infty \Rightarrow \textbf{No existeix}$
+    \item (Directe): $\frac{3(2)^2 + 1}{2-1} = \frac{13}{1} = \textbf{13}$
+\end{enumerate}
+
+\end{document}
