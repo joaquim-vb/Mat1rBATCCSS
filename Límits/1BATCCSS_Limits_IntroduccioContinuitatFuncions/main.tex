@@ -1,0 +1,133 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[catalan]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{amsmath}
+
+% 1. MARGES I CAPÇALERA
+\geometry{top=4cm, bottom=3cm, left=2cm, right=2cm, headheight=2.5cm}
+
+\pagestyle{fancy}
+\fancyhf{}
+% Assegura't que tens els fitxers d'imatge o comenta aquestes línies si no els tens
+\fancyhead[L]{\includegraphics[height=1.8cm]{Logo_Departament.png}} 
+\fancyhead[R]{\includegraphics[height=1.8cm]{Logo_Institut.png}}
+
+\fancyfoot[L]{}
+\fancyfoot[C]{Pàgina \thepage\ de \pageref{LastPage}}
+\fancyfoot[R]{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+% --- CAPÇALERA D'IDENTIFICACIÓ ---
+\begingroup
+\renewcommand{\arraystretch}{2.2}
+\begin{tabularx}{\textwidth}{|X|p{4cm}|}
+    \hline
+    \textbf{Nom i cognoms:} & \textbf{Grup:} \\ \hline
+    \textbf{Activitat:} NomActivitat & \textbf{Data:} \\ \hline
+\end{tabularx}
+\endgroup
+
+\vspace{0.8cm}
+
+\vspace{0.5cm}
+
+\section*{Exercici 1: Identificació teòrica}
+Donades les següents dades sobre una funció $f(x)$ en el punt $x=a$, indica si la funció és \textbf{contínua} en aquest punt o si presenta una \textbf{discontinuïtat} (indica'n el tipus: evitable, de salt finit, o de salt infinit/asimptòtica).
+
+\begin{enumerate}[label=\alph*)]
+    \item $\lim_{x \to a^-} f(x) = 4$, \quad $\lim_{x \to a^+} f(x) = 4$, \quad $f(a) = 4$. Discontinuïtat  \dotfill
+    \item $\lim_{x \to a^-} f(x) = -2$, \quad $\lim_{x \to a^+} f(x) = 5$, \quad $f(a) = 5$. Discontinuïtat  \dotfill
+    \item $\lim_{x \to a^-} f(x) = 3$, \quad $\lim_{x \to a^+} f(x) = 3$, \quad $f(a)$ no existeix. Discontinuïtat \dotfill
+    \item $\lim_{x \to a^-} f(x) = +\infty$, \quad $\lim_{x \to a^+} f(x) = -\infty$, \quad $f(a)$ no existeix. Discontinuïtat \dotfill
+\end{enumerate}
+
+\section*{Exercici 2: Estudi guiat en un punt}
+Estudia la continuïtat de les següents funcions en els punts indicats. Segueix els passos detallats en cada cas.
+
+\subsection*{2.1) $f(x) = x^2 - 3x + 5$ \quad en \quad $x=2$}
+\textit{Guia pas a pas:}
+\begin{enumerate}
+    \item Calcula la imatge de la funció en el punt: $f(2) = $
+    \item Calcula el límit de la funció quan $x \to 2$:
+    \item Creus que cal fer límits laterals?
+    \item Compara els dos resultats i conclou:
+\end{enumerate}
+
+\subsection*{2.2) $g(x) = \frac{x^2 - 9}{x - 3}$ \quad en \quad $x=3$}
+\textit{Guia:}
+\begin{enumerate}
+    \item Calcula $g(3)$. Què passa?
+    \item Calcula el límit quan $x \to 3$. 
+    \item Conclou quin tipus de discontinuïtat és:
+\end{enumerate}
+
+\subsection*{2.3) $h(x) = \begin{cases} x + 2 & \text{si } x \le 1 \\ 5 - x & \text{si } x > 1 \end{cases}$ \quad en \quad $x=1$}
+\textit{Guia:}
+\begin{enumerate}
+    \item Quina expressió fas servir per calcular $h(1)$? Calcula-ho.
+    \item Com $x=1$ és un punt de ruptura, cal calcular límits laterals. Calcula ($\lim_{x \to 1^-}h(x)$ i $\lim_{x \to 1^+}h(x)$).
+    \item Existeix $\lim_{x \to 1} h(x)$? 
+    \item $h(x)$ és contínua en $x=1$? Si no ho és, indica el tipus de discontinuïtat que presenta.
+    
+\end{enumerate}
+
+\subsection*{2.4) $k(x) = \frac{2}{x - 4}$ \quad en \quad $x=4$}
+\begin{enumerate}
+    \item Què has de fer per determinar si $k(x)$ és contínua en $x=4$?
+    \item Determina si $k(x)$ és contínua en $x=4$.
+\end{enumerate}
+
+\section*{Exercici 3: Estudi autònom en múltiples punts}
+
+\subsection*{3.1) Funció definida a trossos}
+Estudia la continuïtat de la funció següent en els punts on canvia de definició ($x=0$ i $x=2$) i classifica les possibles discontinuïtats:
+\[ m(x) = \begin{cases} 2x + 1 & \text{si } x < 0 \\ x^2 + 1 & \text{si } 0 \le x < 2 \\ 8 & \text{si } x \ge 2 \end{cases} \]
+
+\subsection*{3.2) Funció racional}
+Donada la funció $p(x) = \frac{x^2 - 4x}{x^2 - 5x + 4}$, estudia la seva continuïtat en els punts \textbf{$x=0$, $x=1$, $x=2$ i $x=4$}. Indica clarament si és contínua o quin tipus de discontinuïtat presenta en cada cas.
+
+\newpage
+
+% ------------------------------------------------------------------------
+% ----------------------------- SOLUCIONS --------------------------------
+% ------------------------------------------------------------------------
+
+\begin{center}
+    {\Large \textbf{SOLUCIONS}}
+\end{center}
+\vspace{0.5cm}
+
+\subsection*{Solucions - Exercici 1}
+a) Contínua. \quad b) Discontinuïtat de salt finit (de valor 7). \quad c) Discontinuïtat evitable. \quad d) Discontinuïtat de salt infinit (asimptòtica).
+
+\subsection*{Solucions - Exercici 2}
+\textbf{2.1)} $f(2) = 3$. El límit quan $x \to 2$ val 3. Com que límit i imatge coincideixen, \textbf{és contínua}. \\
+\textbf{2.2)} $g(3) = 0/0$ (no existeix). El límit és $\lim_{x \to 3} \frac{(x-3)(x+3)}{x-3} = \lim_{x \to 3} (x+3) = 6$. Hi ha límit però no imatge: \textbf{Discontinuïtat evitable}. \\
+\textbf{2.3)} $h(1) = 3$. Límits laterals: per l'esquerra (ús de $x+2$) dona 3; per la dreta (ús de $5-x$) dona 4. No coincideixen, per tant no hi ha límit. \textbf{Discontinuïtat de salt finit}. \\
+\textbf{2.4)} $k(4) = 2/0$ (no existeix). Límits laterals: a $4^-$ dona $-\infty$, a $4^+$ dona $+\infty$. \textbf{Discontinuïtat de salt infinit (asimptòtica)}.
+
+\subsection*{Solucions - Exercici 3}
+\textbf{3.1)} 
+\begin{itemize}
+    \item \textbf{En $x=0$}: $m(0) = 1$. Límits laterals: $0^-$ dona 1, $0^+$ dona 1. Com que límit (1) i imatge (1) coincideixen, \textbf{és contínua en $x=0$}.
+    \item \textbf{En $x=2$}: $m(2) = 8$. Límits laterals: $2^-$ (fem $2^2+1$) dona 5, $2^+$ (fem 8) dona 8. No hi ha límit. \textbf{Discontinuïtat de salt finit en $x=2$}.
+\end{itemize}
+
+\textbf{3.2)} Funció $p(x) = \frac{x(x-4)}{(x-1)(x-4)}$
+\begin{itemize}
+    \item \textbf{En $x=0$}: Es pot substituir directament. $p(0) = \frac{0}{4} = 0$. El límit és 0. \textbf{Contínua}.
+    \item \textbf{En $x=1$}: $p(1) = -3/0$ (no existeix). Límits laterals a 1 donen $\infty$. \textbf{Discontinuïtat de salt infinit (asimptòtica)}.
+    \item \textbf{En $x=2$}: Es pot substituir directament. $p(2) = \frac{4-8}{4-10+4} = \frac{-4}{-2} = 2$. \textbf{Contínua}.
+    \item \textbf{En $x=4$}: $p(4) = 0/0$ (no existeix). Factoritzem: $\lim_{x \to 4} \frac{x(x-4)}{(x-1)(x-4)} = \lim_{x \to 4} \frac{x}{x-1} = \frac{4}{3}$. Existeix límit però no imatge: \textbf{Discontinuïtat evitable}.
+\end{itemize}
+
+\end{document}
