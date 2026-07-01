@@ -1,0 +1,269 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[catalan]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage{mdframed}
+\usepackage{xcolor}
+
+% --- COLORS DE LA TEVA PLANTILLA ---
+\definecolor{taronja}{RGB}{220, 120, 30}
+\definecolor{blaufosc}{RGB}{30, 80, 160}
+\definecolor{verdfosc}{RGB}{40, 130, 60}
+\definecolor{grisnet}{RGB}{245, 245, 245}
+
+% --- MARGES I CAPÇALERA ORIGINAL ---
+\geometry{top=4cm, bottom=3cm, left=2cm, right=2cm, headheight=2.5cm}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\includegraphics[height=1.8cm]{Logo_Departament.png}}
+\fancyhead[R]{\includegraphics[height=1.8cm]{Logo_Institut.png}}
+\fancyfoot[C]{Pàgina \thepage\ de \pageref{LastPage}}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Large FITXA 1: FUNCIONS EXPONENCIALS I PROPIETATS}
+\end{center}
+
+\vspace{0.3cm}
+
+% ---- EXERCICI 1: REPRESENTACIÓ ----
+\section*{1. Representació gràfica}
+Completa les taules de valors i representa les funcions. Fixa't en el paper de la base $a$.
+
+\begin{multicols}{2}
+    \centering
+    \textbf{Funció A:} $f(x) = 4^x$ \\[0.2cm]
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $x$ & $-1$ & $0$ & $1$ & $2$ \\ \hline
+    $y$ & & & & \\ \hline
+    \end{tabular}
+
+    \columnbreak
+
+    \centering
+    \textbf{Funció B:} $g(x) = \left(\frac{1}{4}\right)^x$ \\[0.2cm]
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $x$ & $-2$ & $-1$ & $0$ & $1$ \\ \hline
+    $y$ & & & & \\ \hline
+    \end{tabular}
+\end{multicols}
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        axis lines = middle, xlabel = $x$, ylabel = $y$,
+        xmin = -3.5, xmax = 3.5, ymin = -0.5, ymax = 17,
+        xtick = {-3,-2,-1,0,1,2,3}, ytick = {0,2,4,6,8,10,12,14,16},
+        grid = both, grid style={line width=.1pt, draw=gray!30},
+        width=10cm, height=7cm
+    ]
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+% ---- NOU EXERCICI 2: RELACIONAR (DE LA FITXA ORIGINAL) ----
+\section*{2. Interpretació de gràfiques}
+Relaciona cada gràfica amb la seva expressió algebraica corresponent. Pensa quines han de ser creixents ($a>1$) o decreixents ($a<1$) i amb quina "velocitat" ho fan.
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*)]
+    \item $f(x) = 3^x$
+    \item $g(x) = 1,5^x$
+    \item $h(x) = 0,5^x$
+    \item $i(x) = 0,2^x$
+\end{enumerate}
+\end{multicols}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xmin=-4, xmax=4, ymin=-0.5, ymax=6,
+    grid=both, grid style={line width=.1pt, draw=gray!30},
+    width=12cm, height=7cm,
+    legend pos=outer north east
+]
+    \addplot[domain=-4:1.6, blue, thick, samples=100] {3^x}; \addlegendentry{Gràfica 1}
+    \addplot[domain=-4:4, red, thick, dashed, samples=100] {1.5^x}; \addlegendentry{Gràfica 2}
+    \addplot[domain=-4:4, green!60!black, thick, dotted, samples=100] {0.5^x}; \addlegendentry{Gràfica 3}
+    \addplot[domain=-1.1:4, black, thick, dashdotted, samples=100] {0.2^x}; \addlegendentry{Gràfica 4}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+% ---- EXERCICI 3: MODELITZACIÓ ----
+\section*{3. Modelització de problemes reals}
+
+\begin{tcolorbox}[colback=blaufosc!5, colframe=blaufosc, title=\textbf{Guia de treball: La funció exponencial}]
+    La majoria de fenòmens de creixement o decreixement constant se serveixen de la fórmula:
+    \[ y = k \cdot a^x \]
+    On \textbf{$k$} és el valor inicial ($t=0$) i \textbf{$a$} és el factor de multiplicació.
+    \begin{itemize}
+        \item Si creix un \%, el factor és $a = (1 + r/100)$. Exemple: Creix un 5\% $\to a = 1,05$.
+        \item Si decreix un \%, el factor és $a = (1 - r/100)$. Exemple: Baixa un 15\% $\to a = 0,85$.
+    \end{itemize}
+\end{tcolorbox}
+
+\textbf{3.1. El vídeo viral.} Un vídeo comença amb 1 visualització ($t=0$). Cada hora es \textbf{duplica}.
+\begin{enumerate}[label=\alph*)]
+    \item Quantes visualitzacions hi ha a $t=1, 2, 3$ i $4$?
+    \item Troba l'expressió algebraica $V(t)$.
+    \item Quantes visualitzacions hi haurà al cap de 24 hores?
+\end{enumerate}
+
+\textbf{3.2. Capital bancari.} Ingresses 1.000 \euro{} a un \textbf{5\% d'interès anual compost}.
+\begin{enumerate}[label=\alph*)]
+    \item Quin capital tens a $t=0$ i $t=1$? (Recorda: multiplicar per 1,05).
+    \item Calcula el capital per a $t=2$ i $t=3$.
+    \item Troba l'expressió $C(t)$ i calcula els diners que tindràs al cap de 10 anys.
+\end{enumerate}
+
+\newpage
+
+% ---- EXERCICI 4: PROPIETATS ----
+\section*{4. Propietats de les potències}
+
+\begin{tcolorbox}[colback=verdfosc!5, colframe=verdfosc, title=\textbf{Recordatori de propietats}]
+    \begin{multicols}{2}
+    \begin{itemize}
+        \item $a^n \cdot a^m = a^{n+m}$
+        \item $\frac{a^n}{a^m} = a^{n-m}$
+        \item $(a^n)^m = a^{n \cdot m}$
+        \item $a^0 = 1$
+        \item $a^{-n} = \frac{1}{a^n}$
+        \item $(a \cdot b)^n = a^n \cdot b^n$
+    \end{itemize}
+    \end{multicols}
+\end{tcolorbox}
+
+\textbf{4.1. Simplifica deixant una sola potència:}
+
+\begin{multicols}{3}
+\begin{enumerate}[label=\alph*)]
+    \textit{\small Producte ($a^n \cdot a^m$)}
+    \item $2^3 \cdot 2^4 = 2^{3+4} = 2^7$
+    \item $3^5 \cdot 3^2 =$
+    \item $5^{-2} \cdot 5^4 =$
+    
+    \textit{\small Divisió ($\frac{a^n}{a^m}$)}
+    \item $\frac{7^8}{7^5} = 7^{8-5} = 7^3$
+    \item $\frac{10^6}{10^{10}} =$
+    \item $\frac{2^4}{2^{-2}} =$
+
+    \textit{\small Exponent 0 i Negatiu}
+    \item $4^0 =$
+    \item $\frac{5^2}{5^2} =$
+    \item $6^{-3} =$
+
+    \textit{\small Parèntesis ($(a^n)^m$)}
+    \item $(2^3)^2 = 2^{3 \cdot 2} = 2^6$
+    \item $(5^4)^3 =$
+    \item $(10^{-2})^4 =$
+\end{enumerate}
+\end{multicols}
+
+\textbf{Combinats senzills (una propietat):}
+\begin{multicols}{5}
+\begin{enumerate}[label=\alph*), resume]
+    \item $2 \cdot 2^5$
+    \item $3^{-2} \cdot 3^{-3}$
+    \item $\frac{4^5}{4}$
+    \item $(10^0)^5$
+    \item $7^{-1} \cdot 7$
+\end{enumerate}
+\end{multicols}
+
+\textbf{Combinats complexos (vàries propietats):}
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), resume]
+    \item $\frac{2^3 \cdot 2^4}{2^5} =$
+    \item $\frac{(3^2)^3}{3^4} =$
+    \item $5^2 \cdot (5^3)^{-1} =$
+    \item $\frac{10^3 \cdot 10^{-5}}{10^{-2}} =$
+    \item $\frac{(7^{-2})^{-3}}{7^4} =$
+\end{enumerate}
+\end{multicols}
+
+\vspace{0.5cm}
+
+\textbf{4.2. Equacions exponencials (Pistes explícites):}
+\begin{enumerate}[label=\alph*)]
+    \item $2^x = 32 \quad \to$ \textit{Pista: $32 = 2^5$}
+    \item $3^{x+1} = 81 \quad \to$ \textit{Pista: $81 = 3^4$}
+    \item $4^x = 16 \quad \to$ \textit{Pista: Escriu $4 = 2^2$ i $16 = 2^4$. Aplica $(2^2)^x = 2^{2x}$.}
+    \item $25^x = 5 \quad \to$ \textit{Pista: $25 = 5^2$}
+\end{enumerate}
+
+\newpage
+% ---- PÀGINA DE SOLUCIONS ----
+\section*{Solucions de la Fitxa 1}
+
+\textbf{Exercici 1 (Taules):}
+\begin{itemize}
+    \item $4^x$: $(-1, 0.25), (0, 1), (1, 4), (2, 16)$.
+    \item $(1/4)^x$: $(-2, 16), (-1, 4), (0, 1), (1, 0.25)$.
+\end{itemize}
+
+\textbf{Exercici 2 (Relacionar):}
+\begin{itemize}
+    \item \textbf{Gràfica 1 (blava):} $f(x) = 3^x$ (Creixement molt ràpid).
+    \item \textbf{Gràfica 2 (vermella):} $g(x) = 1,5^x$ (Creixement més lent).
+    \item \textbf{Gràfica 3 (verda):} $h(x) = 0,5^x$ (Decreixement lent).
+    \item \textbf{Gràfica 4 (negra):} $i(x) = 0,2^x$ (Decreixement molt ràpid).
+\end{itemize}
+
+\textbf{Exercici 3 (Problemes):}
+\begin{itemize}
+    \item \textbf{3.1:} a) $2, 4, 8, 16$; b) $V(t) = 2^t$; c) $16.777.216$ visualitzacions.
+    \item \textbf{3.2:} a) $1000$ i $1050$ €; b) $1102,5$ i $1157,63$ €; c) $C(t) = 1000 \cdot 1,05^t$; $C(10) \approx 1628,89$ €.
+\end{itemize}
+
+\textbf{Exercici 4.1 (Potències):}
+\begin{multicols}{4}
+\begin{itemize}
+    \item a) $2^7$
+    \item b) $3^7$
+    \item c) $5^2$
+    \item d) $7^3$
+    \item e) $10^{-4}$
+    \item f) $2^6$
+    \item g) $1$
+    \item h) $1$
+    \item i) $6^{-3}$
+    \item j) $2^6$
+    \item k) $5^{12}$
+    \item l) $10^{-8}$
+    \item m) $2^6$
+    \item n) $3^{-5}$
+    \item o) $4^4$
+    \item p) $1$
+    \item q) $1$
+    \item r) $2^2$
+    \item s) $3^2$
+    \item t) $5^{-1}$
+    \item u) $1$
+    \item v) $7^2$
+\end{itemize}
+\end{multicols}
+
+\textbf{Exercici 4.2 (Equacions):}
+a) $x=5$; b) $x=3$; c) $x=2$; d) $x=0,5$ ($1/2$).
+
+\end{document}
