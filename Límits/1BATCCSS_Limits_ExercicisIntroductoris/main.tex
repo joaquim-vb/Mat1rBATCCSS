@@ -1,0 +1,326 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[catalan]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% 1. MARGES I CAPÇALERA
+\geometry{top=4cm, bottom=3cm, left=2cm, right=2cm, headheight=2.5cm}
+
+\pagestyle{fancy}
+\fancyhf{}
+% Assegura't que tens els fitxers d'imatge o comenta aquestes línies si no els tens
+\fancyhead[L]{\includegraphics[height=1.8cm]{Logo_Departament.png}} 
+\fancyhead[R]{\includegraphics[height=1.8cm]{Logo_Institut.png}}
+
+\fancyfoot[L]{}
+\fancyfoot[C]{Pàgina \thepage\ de \pageref{LastPage}}
+\fancyfoot[R]{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+% --- CAPÇALERA D'IDENTIFICACIÓ ---
+\begingroup
+\renewcommand{\arraystretch}{2.2}
+\begin{tabularx}{\textwidth}{|X|p{4cm}|}
+    \hline
+    \textbf{Nom i cognoms:} & \textbf{Grup:} \\ \hline
+    \textbf{Activitat:} Introducció a límits & \textbf{Data:} \\ \hline
+\end{tabularx}
+\endgroup
+
+\vspace{0.8cm}
+
+\begin{center}
+    {\Large \textbf{INTRODUCCIÓ A LÍMITS}}
+\end{center}
+
+% --- EXERCICI 1: TAULES DE VALORS ---
+\section*{Exercici 1: Aproximació numèrica als límits a l'infinit}
+
+Per entendre cap a quin valor s'apropa una funció quan la $x$ es fa infinitament gran (positiva o negativa), podem avaluar la funció per a valors de $x$ cada cop més extrems.
+
+\textbf{Exemple guiat:} Considerem la funció $f(x) = \frac{1}{x}$. Què passa quan $x \to +\infty$?
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$x$ & 10 & 100 & 1000 & $\to +\infty$ \\ \hline
+$f(x) = \frac{1}{x}$ & 0,1 & 0,01 & 0,001 & $\to \mathbf{0}$ \\ \hline
+\end{tabular}
+\end{center}
+Observem que els valors s'apropen a 0. Per tant, escrivim: $\lim_{x\to +\infty} \frac{1}{x} = 0$.
+
+\vspace{0.5cm}
+\textbf{a)} Completa les taules següents per a la funció polinòmica $g(x) = x^2 - 5x$ i dedueix-ne el límit:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$x$ & 10 & 100 & 1000 & $\to +\infty$ \\ \hline
+$g(x) = x^2 - 5x$ & 50 & 9500 & \hspace{2cm} & $\to$ \hspace{1cm} \\ \hline
+\end{tabular}
+\end{center}
+$$ \lim_{x\to +\infty} (x^2 - 5x) = $$
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$x$ & -10 & -100 & -1000 & $\to -\infty$ \\ \hline
+$g(x) = x^2 - 5x$ & 150 & \hspace{2cm} & \hspace{2cm} & $\to$ \hspace{1cm} \\ \hline
+\end{tabular}
+\end{center}
+$$ \lim_{x\to -\infty} (x^2 - 5x) =  $$
+
+\vspace{0.5cm}
+\textbf{b)} Completa les taules següents per a la funció racional $h(x) = \frac{2x}{x+1}$ i dedueix-ne el límit:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$x$ & 10 & 100 & 1000 & $\to +\infty$ \\ \hline
+$h(x) = \frac{2x}{x+1}$ & 1,818 & \hspace{2cm} & \hspace{2cm} & $\to$ \hspace{1cm} \\ \hline
+\end{tabular}
+\end{center}
+$$ \lim_{x\to +\infty} \frac{2x}{x+1} = $$
+
+
+% --- EXERCICI 2: LÍMITS GRÀFICS ---
+\newpage
+\section*{Exercici 2: Càlcul de límits a partir de gràfiques}
+
+Observa les següents representacions gràfiques. A cada sistema de coordenades hi ha dibuixades dues funcions: una amb \textbf{línia contínua} $f(x)$ i una amb \textbf{línia discontínua} $g(x)$. Determina els límits a $+\infty$ i a $-\infty$ per a cadascuna d'elles.
+
+\vspace{0.5cm}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{cc}
+    % --- Gràfic 1 ---
+    \begin{minipage}{7.5cm}
+        \centering
+        \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = middle, xlabel = $x$, ylabel = {$y$},
+            xmin=-4, xmax=4, ymin=-5, ymax=5,
+            width=6.8cm, height=6.8cm, grid=major
+        ]
+        \addplot [blue, thick, samples=100, domain=-3:3] {x^2-2}; % f(x)
+        \addplot [red, thick, dashed, samples=100, domain=-2.5:2.5] {-0.5*x^3}; % g(x)
+        \node at (axis cs: 2, 3.5) [text=blue] {$f(x)$};
+        \node at (axis cs: -2, 4.5) [text=red] {$g(x)$};
+        \end{axis}
+        \end{tikzpicture}
+        
+        \vspace{0.3cm}
+        \textbf{Gràfic 1 (Polinòmiques)} \\[0.3cm]
+        $\lim_{x \to +\infty} f(x) = $ \\
+        $\lim_{x \to -\infty} f(x) = $ \\
+        $\lim_{x \to +\infty} g(x) = $ \\
+        $\lim_{x \to -\infty} g(x) = $ \\
+    \end{minipage}
+    &
+    % --- Gràfic 2 ---
+    \begin{minipage}{7.5cm}
+        \centering
+        \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = middle, xlabel = $x$, ylabel = {$y$},
+            xmin=-5, xmax=5, ymin=-5, ymax=5,
+            width=6.8cm, height=6.8cm, grid=major,
+            restrict y to domain=-10:10
+        ]
+        \addplot [blue, thick, samples=100, domain=0.1:5] {2/x}; % f(x) dreta
+        \addplot [blue, thick, samples=100, domain=-5:-0.1] {2/x}; % f(x) esquerra
+        \addplot [red, thick, dashed, samples=100, domain=-5:5] {4 - 1/(x^2+1)}; % g(x)
+        \node at (axis cs: 3, 1.5) [text=blue] {$f(x)$};
+        \node at (axis cs: 3, 4.5) [text=red] {$g(x)$};
+        \end{axis}
+        \end{tikzpicture}
+        
+        \vspace{0.3cm}
+        \textbf{Gràfic 2 (Racionals)} \\[0.3cm]
+        $\lim_{x \to +\infty} f(x) = $ \\
+        $\lim_{x \to -\infty} f(x) = $ \\
+        $\lim_{x \to +\infty} g(x) = $ \\
+        $\lim_{x \to -\infty} g(x) = $ \\
+    \end{minipage} \\
+    
+    \multicolumn{2}{c}{} \\[-0.2cm] % Espai en blanc entre les files de gràfics
+    
+    % --- Gràfic 3 ---
+    \begin{minipage}{7.5cm}
+        \centering
+        \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = middle, xlabel = $x$, ylabel = {$y$},
+            xmin=-4, xmax=4, ymin=-5, ymax=5,
+            width=6.8cm, height=6.8cm, grid=major,
+            restrict y to domain=-10:10
+        ]
+        \addplot [blue, thick, samples=100, domain=-4:-0.2] {-3/(x^2)}; % f(x) esq
+        \addplot [blue, thick, samples=100, domain=0.2:4] {-3/(x^2)}; % f(x) dreta
+        \addplot [red, thick, dashed, samples=100, domain=-2.2:2.2] {x^3 - 2*x}; % g(x)
+        \node at (axis cs: -2.5, -1.5) [text=blue] {$f(x)$};
+        \node at (axis cs: 1.5, 2.5) [text=red] {$g(x)$};
+        \end{axis}
+        \end{tikzpicture}
+        
+        \vspace{0.3cm}
+        \textbf{Gràfic 3 (Racional i polinòmica)} \\[0.3cm]
+        $\lim_{x \to +\infty} f(x) = $ \\
+        $\lim_{x \to -\infty} f(x) = $ \\
+        $\lim_{x \to +\infty} g(x) = $ \\
+        $\lim_{x \to -\infty} g(x) = $ \\
+    \end{minipage}
+    &
+    % --- Gràfic 4 ---
+    \begin{minipage}{7.5cm}
+        \centering
+        \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = middle, xlabel = $x$, ylabel = {$y$},
+            xmin=-5, xmax=5, ymin=-5, ymax=5,
+            width=6.8cm, height=6.8cm, grid=major
+        ]
+        \addplot [blue, thick, samples=100, domain=-5:5] {(x^2)/(x^2+1)-2}; % f(x) amb asímptota a y=-1
+        \addplot [red, thick, dashed, samples=100, domain=-3:3] {-x^2+4}; % g(x) parabola invertida
+        \node at (axis cs: 3, -1.5) [text=blue] {$f(x)$};
+        \node at (axis cs: 1.5, 3) [text=red] {$g(x)$};
+        \end{axis}
+        \end{tikzpicture}
+        
+        \vspace{0.3cm}
+        \textbf{Gràfic 4 (Racional i polinòmica)} \\[0.3cm]
+        $\lim_{x \to +\infty} f(x) = $ \\
+        $\lim_{x \to -\infty} f(x) = $ \\
+        $\lim_{x \to +\infty} g(x) = $ \\
+        $\lim_{x \to -\infty} g(x) = $ \\
+    \end{minipage} \\
+\end{tabular}
+\end{center}
+
+
+
+% --- EXERCICI 3: CÀLCUL ANALÍTIC ---
+\newpage
+\section*{Exercici 3: Càlcul analític de límits a l'infinit}
+
+Calcula els següents límits pas a pas. Estan ordenats per tipologia de funció perquè vagis consolidant el procediment. Fixa't bé en els primers apartats de cada bloc, ja que estan completament resolts i et serviran de model.
+
+\vspace{0.5cm}
+
+% --- BLOC A: MONOMIS ---
+\textbf{A. Funcions Monòmiques} \\
+Substituïm la $x$ per l'infinit i apliquem la regla dels signes de les potències.
+\vspace{-0.2cm}
+\begin{multicols}{2}
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=0.8cm]
+    \item $\lim_{x \to +\infty} x^4 = (+\infty)^4 = \mathbf{+\infty}$
+    \item $\lim_{x \to -\infty} -2x^3 = -2(-\infty)^3 = -2(-\infty) = \mathbf{+\infty}$
+    \item $\lim_{x \to +\infty} x^5 =$
+    \item $\lim_{x \to -\infty} -3x^2 =$
+    \item $\lim_{x \to +\infty} -x^6 =$
+\end{enumerate}
+\end{multicols}
+
+\vspace{0.5cm}
+
+% --- BLOC B: POLINOMIS ---
+\textbf{B. Funcions Polinòmiques} \\
+Ens quedem amb el terme de grau més alt. La resta de termes són menyspreables davant d'un exponent superior, i això ens permet resoldre la indeterminació $\infty - \infty$.
+\vspace{-0.2cm}
+\begin{multicols}{2}
+\begin{enumerate}[label=\textbf{\arabic*.}, resume, itemsep=0.8cm]
+    \item $\lim_{x \to +\infty} (x^4 - x^3) = (+\infty)^4 - (+\infty)^3 = \fbox{$+\infty - \infty$} \rightarrow \lim_{x\to +\infty} x^4 = \mathbf{+\infty}$
+    \item $\lim_{x \to -\infty} (x^4 + x^3) = (-\infty)^4 + (-\infty)^3 = \fbox{$+\infty - \infty$} \rightarrow \lim_{x\to -\infty} x^4 = \mathbf{+\infty}$
+    \item $\lim_{x \to +\infty} (x^3 + 2x^2) =$
+    \item $\lim_{x \to -\infty} (2x^2 - 5x^3) =$
+    \item $\lim_{x \to +\infty} (4x^4 - x^5 + 2) =$
+\end{enumerate}
+\end{multicols}
+
+\vspace{0.5cm}
+
+% --- BLOC C: RACIONALS SIMPLES ---
+\textbf{C. Funcions Racionals simples (tipus $k/x^n$)} \\
+Un nombre dividit per un valor infinitament gran tendeix a zero.
+\vspace{-0.2cm}
+\begin{multicols}{2}
+\begin{enumerate}[label=\textbf{\arabic*.}, resume, itemsep=0.8cm]
+    \item $\lim_{x \to -\infty} \frac{-1}{x^2} = \frac{-1}{(-\infty)^2} = \frac{-1}{+\infty} = \mathbf{0}$
+    \item $\lim_{x \to +\infty} \frac{4}{x} =$
+    \item $\lim_{x \to -\infty} \frac{-7}{x} =$
+    \item $\lim_{x \to +\infty} \frac{1}{x^3} =$
+    \item $\lim_{x \to -\infty} \frac{5}{x^4} =$
+    \item $\lim_{x \to +\infty} \frac{-2}{x^5} =$
+\end{enumerate}
+\end{multicols}
+
+\vspace{0.5cm}
+\newpage
+
+% --- BLOC D: RACIONALS P(x)/Q(x) ---
+\textbf{D. Funcions Racionals completes $\frac{P(x)}{Q(x)}$} \\
+Ens quedem amb el terme de grau més alt del numerador i del denominador, simplifiquem la fracció i, finalment, calculem el límit (Indeterminació $\frac{\infty}{\infty}$).
+\vspace{-0.2cm}
+\begin{enumerate}[label=\textbf{\arabic*.}, resume, itemsep=0.8cm]
+    \item $\lim_{x \to +\infty} \frac{4x^3 - 2x}{2x^2 + 1} = \fbox{$\frac{\infty}{\infty}$} \rightarrow \lim_{x \to +\infty} \frac{4x^3}{2x^2} = \lim_{x \to +\infty} 2x = \mathbf{+\infty}$
+    \begin{multicols}{2}
+        \item $\lim_{x \to +\infty} \frac{6x^2 - 3x}{2x^2 + 5}  $
+        \item $\lim_{x \to +\infty} \frac{3x^2 - 5x}{x^2 + 2} =$
+        \item $\lim_{x \to -\infty} \frac{x^4 - 1}{-2x^2 + 4x} =$
+        \item $\lim_{x \to +\infty} \frac{5x}{x^3 - 2} =$
+    \end{multicols}
+\end{enumerate}
+
+\vspace{0.5cm}
+
+% --- BLOC E: DIFERÈNCIA DE FRACCIONS ALGEBRAIQUES ---
+\textbf{E. Indeterminació $\infty - \infty$: diferència de fraccions algebraiques $\dfrac{P(x)}{Q(x)} - \dfrac{R(x)}{S(x)}$} \\
+Reduïm a denominador comú, simplifiquem i apliquem la regla del grau màxim.
+\vspace{0.2cm}
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=1.2cm]
+    \item $\lim_{x \to -\infty} \left( \dfrac{3x + 2}{x + 1} - \dfrac{x + 4}{x - 2} \right) = \fbox{$\infty - \infty$} \rightarrow \lim_{x \to -\infty} \dfrac{(3x+2)(x-2)-(x+4)(x+1)}{(x+1)(x-2)} = \lim_{x \to -\infty} \dfrac{3x^2 - 4x - 4 - x^2 - 5x - 4}{x^2 - x - 2} = \lim_{x \to -\infty} \dfrac{2x^2 - 9x - 8}{x^2 - x - 2} = \mathbf{2}$
+    \begin{multicols}{2}
+        \item $\lim_{x \to +\infty} \left( \dfrac{2x + 1}{x - 3} - \dfrac{x + 5}{x + 2} \right) = $
+        \item $\lim_{x \to +\infty} \left( \dfrac{x^2 + 1}{x + 1} - \dfrac{x^2 - 1}{x - 1} \right) = $
+        \item $\lim_{x \to -\infty} \left( \dfrac{4x - 1}{x + 2} - \dfrac{x + 3}{x - 1} \right) = $
+        \item $\lim_{x \to +\infty} \left( \dfrac{x^2 + 3}{2x - 1} - \dfrac{x^2}{2x + 1} \right) = $
+    \end{multicols}
+\end{enumerate}
+
+\vspace{0.5cm}
+% --- BLOC E: COMBINATS ---
+\textbf{F. Exercicis combinats} \\
+Apliquem la lògica dels blocs anteriors part per part i operem els resultats.
+
+\vspace{0.3cm}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=0.8cm]
+    \begin{multicols}{2}
+        \item $\lim_{x \to +\infty} (2x^3 - x^4 + 5) = $
+        \item $\lim_{x \to -\infty} \left( \dfrac{3x + 2}{x + 1} - \dfrac{x + 4}{x - 2} \right) = $
+        \item $\lim_{x \to +\infty} \dfrac{2x - 3}{x^3 + x} = $
+        \item $\lim_{x \to +\infty} (x^5 - 4x^4 + 1) = $
+        \item $\lim_{x \to +\infty} \left( \dfrac{2x^2 - 1}{x - 1} - 2x \right) = $
+        \item $\lim_{x \to -\infty} \dfrac{-4}{3x + 1} = $
+        \item $\lim_{x \to +\infty} \dfrac{5x^2 - 2x}{x^2 + 1} = $
+        \item $\lim_{x \to +\infty} \left( \dfrac{x^2 + 1}{x + 1} - x \right) =$    
+    \end{multicols}
+\end{enumerate}
+
+\end{document}
